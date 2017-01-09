@@ -1,4 +1,290 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-  background-color:blue;
-  color:white;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+html {
+  /*background-color:#fff;*/
+  font-family:sans-serif;
+}
+
+body {
+  margin:0;
+  height:100vh;
+  overflow:hidden;
+}
+
+/*
+* Header
+*/
+
+.header {
+  position:absolute;
+  top:0;
+	border-bottom:1px solid #000;
+  width:100%;
+  color:#000;
+  height:40px;
+  display:flex;
+  align-items:center;
+  z-index:10;
+	background-color:#fff;
+}
+
+.header__title {
+  font-weight:100;
+  font-size:1rem;
+  margin:0;
+  min-width:33%;
+  text-align:center;
+  padding:0px 6px;
+}
+
+/*
+* Main
+*/
+
+main {
+  position:relative;
+  height:calc(100vh - 65px);
+  margin-top:40px;
+	transform: translateX(0);
+	transition:all .3s;
+	z-index:10;
+}
+
+main.main--inactive {
+	transform: translateX(calc(-100% + 25px));
+	cursor: pointer;
+}
+
+.main__back-button {
+	cursor:pointer;
+	position:absolute;
+	top: 10px;
+	right: 5px;
+	font-size:14px;
+	transform: rotate(-90deg);
+	transform-origin: 75%;
+	color:white;
+	opacity:0;
+	transition:all .3s;
+}
+
+.main--inactive .main__back-button {
+	opacity:1;
+}
+
+main:before {
+	content: '';
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	position:absolute;
+	/*background-image:url('http://www.watchpro.com/wp-content/uploads/2015/10/gavin%20foster.jpg');*/
+	/*filter:blur(70px);*/
+	background-color:blue;
+}
+
+/*
+* Footer
+*/
+
+footer {
+	height: auto;
+  position: absolute;
+  bottom: 0;
+	transform: translate(0, 90.5%);
+	transition:transform .5s;
+	z-index:20;
+	border-top:1px solid black;
+	background-color:white;
+}
+
+footer:hover{
+	transform: translate(0, 0%);
+}
+
+.footer-top {
+  display:flex;
+  align-items:center;
+	justify-content:space-around;
+  width:100%;
+  height:25px;
+  font-size:.8rem;
+	padding: 0 0 20px 0;
+}
+
+.footer-top__text {
+  width: 33%;
+  text-align:center;
+}
+
+.footer-bottom {
+	height: auto;
+	display: flex;
+	align-items: center;
+	line-height: 1.4rem;
+}
+
+.footer-bottom__text {
+	width:66.6%;
+}
+
+.footer-bottom__text p {
+	padding:0 6px;
+}
+
+.footer-bottom__image {
+	width:33.3%;
+	text-align:center;
+}
+
+.footer-bottom__image img {
+	max-width:200px;
+}
+
+/*
+* Project
+*/
+
+.project__dot {
+	cursor:pointer;
+	width:40px;
+	height:40px;
+	position:absolute;
+	transition:all .2s;
+}
+
+.project__dot:before {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	content:'💼';
+}
+
+.project__dot:after {
+	content:'';
+	width:38px;
+	height:38px;
+	border:2px solid red;
+	border-radius:100%;
+	background-color:red;
+	position:absolute;
+	transition:all .2s;
+	z-index:10;
+}
+
+.project__dot:hover:after {
+	background-color:transparent;
+}
+
+/*
+* Project Emojis
+*/
+
+.project__dot--lottery:before {
+	content:'💸';
+}
+
+/*
+* Project Preview
+*/
+
+.project-preview__container {
+	position:relative;
+	width:100%;
+	height:100%;
+}
+
+.project-preview__image-container {
+	position:absolute;
+	bottom:10px;
+	left:10px;
+	width:300px;
+	height:200px;
+	border:2px solid #fff;
+	background-color:transparent;
+}
+
+.project-preview__title {
+	position:absolute;
+	top: 10px;
+	right: 20px;
+	font-size:14px;
+	transform: rotate(-90deg);
+	transform-origin: 100%;
+	color:white;
+	opacity:1;
+	transition: all .3s
+}
+
+.project-preview__title--hidden {
+	opacity:0;
+}
+
+.main--inactive .project-preview__title {
+	opacity:0;
+}
+
+/*
+* Project Single
+*/
+
+.project-single__container {
+	position: absolute;
+	top:0;
+	left:0;
+	height: calc(100vh - 65px);
+	width:100%;
+	margin-top: 40px;
+	background-color: rgba(255,255,0,.8);
+	padding-left:25px;
 }

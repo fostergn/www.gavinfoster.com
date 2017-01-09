@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Header = ({ toggleSetting }) =>  {
+const Header = () =>  {
 
   const navClass = classNames({
     'header__nav': true,
@@ -14,13 +14,9 @@ const Header = ({ toggleSetting }) =>  {
   }
 
   return (
-    <div className="header">
-      <div className="header__nav">
-          <ul className={navClass}>
-            <li>Gavin Foster</li>
-          </ul>
-      </div>
-  </div>
+    <header className="header">
+      <h1 className="header__title">Gavin Foster</h1>
+    </header>
   );
 }
 

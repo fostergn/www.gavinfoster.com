@@ -1,5 +1,10 @@
+import { randomPosition } from './utils';
+
 const initialState = {
-  view: '',
+  portfolio: {
+    dotPos: randomPosition(),
+    hovering: false
+  }
 };
 
 export default initialState;

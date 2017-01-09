@@ -1,12 +1,22 @@
-import fetch from 'isomorphic-fetch'
+import fetch from 'isomorphic-fetch';
+import firebase from '../firebase';
 
-export const TOGGLE_SETTING = 'TOGGLE_SETTING';
+export const MOVE_DOTS = 'MOVE_DOTS';
+export const UN_HOVER = 'UN_HOVER';
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 
-export function toggleSetting() {
+export function moveDots(position, name) {
     return {
-        type: TOGGLE_SETTING,
+        type: MOVE_DOTS,
+        position,        // index of dot hovered over
+        name,
+    }
+}
+
+export function unHover() {
+    return {
+        type: UN_HOVER,
     }
 }
 

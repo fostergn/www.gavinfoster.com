@@ -202,13 +202,13 @@ footer:hover{
 	transition:all .2s;
 }
 
-.project__dot:before {
+/*.project__dot:before {
 	position:absolute;
 	top:50%;
 	left:50%;
 	transform:translate(-50%, -50%);
 	content:'💼';
-}
+}*/
 
 .project__dot:after {
 	content:'';
@@ -224,14 +224,6 @@ footer:hover{
 
 .project__dot:hover:after {
 	background-color:transparent;
-}
-
-/*
-* Project Emojis
-*/
-
-.project__dot--lottery:before {
-	content:'💸';
 }
 
 /*
@@ -295,11 +287,15 @@ footer:hover{
 
 .project-single__copy {
 	width:50%;
-	/*border: 2px solid green;*/
+	padding-top:4rem;
+	box-sizing: border-box;
+	padding: 4rem 1rem 0;
 }
 
 .project-single__title {
 	font-size:28px;
+	padding-bottom:10px;
+	text-decoration:underline;
 }
 
 .project-single__description {
@@ -310,6 +306,35 @@ footer:hover{
 
 .project-single__image-container {
 	width:50%;
+}
+
+/*
+* Span Styles
+*/
+.highlight--blue {
+	padding:2px 4px;
+	background-color:blue;
+	color:white;
+}
+
+.underline--blue {
+	border-bottom:2px solid blue;
+}
+
+.highlight--purple {
+	padding:2px 4px;
+	background-color:rebeccapurple;
+	color:white;
+}
+
+.highlight--orange {
+	padding:2px 4px;
+	background-color:orange;
+	color:white;
+}
+
+.underline--orange {
+	border-bottom:2px solid orange;
 }
 
 /*

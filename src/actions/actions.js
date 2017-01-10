@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import firebase from '../firebase';
+import projects from '../projects';
 
 export const MOVE_DOTS = 'MOVE_DOTS';
 export const UN_HOVER = 'UN_HOVER';
@@ -10,7 +11,7 @@ export function moveDots(position, name) {
     return {
         type: MOVE_DOTS,
         position,        // index of dot hovered over
-        name,
+        project: projects[projects.findIndex(project => project.name === name)]
     }
 }
 

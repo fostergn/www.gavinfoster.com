@@ -10,7 +10,7 @@ const portfolioReducer = (state = {}, action) => {
         case MOVE_DOTS:
             return Object.assign({}, state, {
                 dotPos: randomPosition(state.dotPos, action.position),
-                currentProject: action.name,
+                currentProject: action.project,
                 hovering: true,
             });
         case UN_HOVER:

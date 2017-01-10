@@ -18,7 +18,7 @@ const Dot = ({ name, index, dotPos, moveDots, unHover }) =>  {
       style={style}
       onMouseEnter={() => dotHover()}
       onMouseLeave={() => unHover()}
-      onClick={() => browserHistory.push('/project/dfaskjfd')}
+      onClick={() => browserHistory.push(`/project/${name}`)}
     >
     </div>
   );

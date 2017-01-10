@@ -10,7 +10,7 @@ const Preview = ({ project, hovering }) =>  {
 
   return (
     <div className="project-preview__container">
-      <div className={previewTitleClasses}>{project}</div>
+      <div className={previewTitleClasses}>{project.name}</div>
       <section className="project-preview__image-container"></section>
     </div>
   );

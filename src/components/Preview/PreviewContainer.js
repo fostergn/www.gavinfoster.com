@@ -11,12 +11,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // moveDots: pos => {
-    //   dispatch(moveDots(pos));
-    // },
-    // unHover: () => {
-    //   dispatch(unHover());
-    // },
   };
 };
 

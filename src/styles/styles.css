@@ -285,6 +285,93 @@ footer:hover{
 	height: calc(100vh - 65px);
 	width:100%;
 	margin-top: 40px;
-	background-color: rgba(255,255,0,.8);
-	padding-left:25px;
+	/*background-color: rgba(255,255,0,.8);*/
+	padding:20px;
+	padding-left:calc(25px + 20px);
+	display:flex;
+	box-sizing:border-box;
+	background-color:yellow;
+}
+
+.project-single__copy {
+	width:50%;
+	/*border: 2px solid green;*/
+}
+
+.project-single__title {
+	font-size:28px;
+}
+
+.project-single__description {
+	font-size:22px;
+	text-align:justify;
+	line-height:1.5;
+}
+
+.project-single__image-container {
+	width:50%;
+}
+
+/*
+* Flickity Carousel
+*/
+
+.flickity-slider {
+	display: flex;
+	align-items: center;
+}
+
+.carousel__container {
+	width:100%;
+	height:80%;
+	padding-top:5%;
+	position:relative;
+	/*border:2px solid red;*/
+}
+
+.flickity-viewport {
+	height:100%;
+}
+
+.carousel__cell {
+	width:100%;
+}
+
+.carousel__image {
+	width:100%;
+}
+
+.flickity-page-dots {
+	height:20%;
+	position:relative;
+	bottom:0;
+	padding-top:5px;
+}
+
+.flickity-page-dots .dot {
+	width:25px;
+	height:25px;
+	background-color:red;
+	position:absolute;
+}
+
+.flickity-page-dots .dot:first-child {
+	top:10%;
+	left:10%;
+}
+.flickity-page-dots .dot:nth-child(2) {
+	top:60%;
+	left:60%;
+}
+.flickity-page-dots .dot:nth-child(3) {
+	top:20%;
+	left:80%;
+}
+.flickity-page-dots .dot:nth-child(4) {
+	top:40%;
+	left:40%;
+}
+.flickity-page-dots .dot:nth-child(4) {
+	top:80%;
+	left:5%;
 }

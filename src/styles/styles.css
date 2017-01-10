@@ -244,6 +244,8 @@ footer:hover{
 	height:200px;
 	border:2px solid #fff;
 	background-color:transparent;
+	background-size:cover;
+	background-position:center;
 }
 
 .project-preview__title {

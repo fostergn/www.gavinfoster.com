@@ -11,7 +11,8 @@ const Preview = ({ project, hovering }) =>  {
   return (
     <div className="project-preview__container">
       <div className={previewTitleClasses}>{project.name}</div>
-      <section className="project-preview__image-container"></section>
+      <section className="project-preview__image-container" style={{backgroundImage: `url('${project.cover}')`}}>
+      </section>
     </div>
   );
 }

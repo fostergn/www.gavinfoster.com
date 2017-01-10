@@ -248,6 +248,28 @@ footer:hover{
 	background-position:center;
 }
 
+.project-preview__image-container-child {
+	position:relative;
+	height:100%;
+	width:100%;
+	overflow:hidden;
+}
+
+.project-preview__image {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	width:100%;
+	height:auto;
+	opacity:1;
+	transition: all .3s;
+}
+
+.project-preview__image--hidden {
+	opacity:0;
+}
+
 .project-preview__title {
 	position:absolute;
 	top: 10px;

@@ -5,6 +5,12 @@ const initialState = {
     dotPos: randomPosition(),
     hovering: false,
     currentProject: {},
+  },
+  chat: {
+    isChatOpen: false,
+    conversation: {
+      messages: []
+    }
   }
 };
 

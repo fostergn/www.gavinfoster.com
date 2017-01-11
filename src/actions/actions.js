@@ -1,12 +1,21 @@
-import fetch from 'isomorphic-fetch';
-import firebase from '../firebase';
 import projects from '../projects';
+import firebaseDb, { conversationId } from '../firebaseDb';
+
+
+// Portfolio Constants
 
 export const MOVE_DOTS = 'MOVE_DOTS';
 export const UN_HOVER = 'UN_HOVER';
 export const INIT_PROJECT = 'INIT_PROJECT';
-export const REQUEST_POSTS = 'REQUEST_POSTS'
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+
+// Chat Constants
+
+export const TOGGLE_CHAT = 'TOGGLE_CHAT';
+export const UPDATE_CONVERSATION = 'UPDATE_CONVERSATION';
+export const ADD_MESSAGE_TO_FIREBASE = 'ADD_MESSAGE_TO_FIREBASE';
+export const ADD_MESSAGE_TO_CONVERSATION = 'ADD_MESSAGE_TO_CONVERSATION';
+
+// Portfolio Actions
 
 export function moveDots(position, name) {
     return {
@@ -29,51 +38,44 @@ export function unHover() {
     }
 }
 
-function requestPosts(category) {
+/*
+* Chat Actions
+*/
+
+export function toggleChat() {
+    return {
+        type: TOGGLE_CHAT,
+    }
+}
+
+export function updateConversation(conversation){
   return {
-    type: REQUEST_POSTS,
-    category
+    type: UPDATE_CONVERSATION,
+    conversation: conversation,
   }
 }
 
-function receivePosts(posts) {
+export function addMessageToConversation(message){
   return {
-    type: RECEIVE_POSTS,
-    posts: posts.data.children.map(child => child.data),
+    type: ADD_MESSAGE_TO_CONVERSATION,
+    message,
   }
 }
 
-
-export function fetchPosts(category) {
-
-  // Thunk middleware knows how to handle functions.
-  // It passes the dispatch method as an argument to the function,
-  // thus making it able to dispatch actions itself.
-
-  return function (dispatch) {
-
-    // First dispatch: the app state is updated to inform
-    // that the API call is starting.
-
-    dispatch(requestPosts(category))
-
-    // The function called by the thunk middleware can return a value,
-    // that is passed on as the return value of the dispatch method.
-
-    // In this case, we return a promise to wait for.
-    // This is not required by thunk middleware, but it is convenient for us.
-
-    return fetch(`http://www.gavinfoster.com/api/v2/${category}.json`)
-      .then(response => response.json())
-      .then(json =>
-
-        // We can dispatch many times!
-        // Here, we update the app state with the results of the API call.
-
-        dispatch(receivePosts(json))
-      )
-
-      // In a real world app, you also want to
-      // catch any error in the network call.
-  }
+export function sendMessage(message) {
+    // send message to firebase
+    firebaseDb.ref('messages').push({
+      author: 'client',
+      message,
+      conversationId,
+      createdOn: Date.now(),
+    }, function(){
+      console.log('success');
+    });
+    firebaseDb.ref(`conversations/${conversationId}`).update({
+      lastChat: Date.now(),
+    });
+    return {
+        type: ADD_MESSAGE_TO_FIREBASE,
+    }
 }

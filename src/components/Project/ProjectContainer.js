@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { initProject } from '../../actions/actions';
 import Project from './Project';
 
 const mapStateToProps = (state) => {
@@ -9,9 +10,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // moveDots: pos => {
-    //   dispatch(moveDots(pos));
-    // },
+    initProject: name => {
+      dispatch(initProject(name));
+    },
   };
 };
 

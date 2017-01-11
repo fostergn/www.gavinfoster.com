@@ -5,7 +5,7 @@ import Preview from '../Preview/PreviewContainer';
 import Project from '../Project/ProjectContainer';
 import projects from '../../projects';
 
-const Main = ({ children, location, route }) =>  {
+const Main = ({ children, location, route, params }) =>  {
   let mainClass = '';
   let isMainActive = true;
   let dotList = projects.map((project, index) => <Dot index={index} name={project.name} key={index} />)
@@ -30,7 +30,7 @@ const Main = ({ children, location, route }) =>  {
         <Preview />
         <div className='main__back-button'>home</div>
       </main>
-      <Project />
+      <Project route={route} location={location} params={params} />
       {/*children*/}
     </div>
   );

@@ -4,6 +4,7 @@ import projects from '../projects';
 
 export const MOVE_DOTS = 'MOVE_DOTS';
 export const UN_HOVER = 'UN_HOVER';
+export const INIT_PROJECT = 'INIT_PROJECT';
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 
@@ -11,6 +12,13 @@ export function moveDots(position, name) {
     return {
         type: MOVE_DOTS,
         position,        // index of dot hovered over
+        project: projects[projects.findIndex(project => project.name === name)]
+    }
+}
+
+export function initProject(name) {
+    return {
+        type: INIT_PROJECT,
         project: projects[projects.findIndex(project => project.name === name)]
     }
 }

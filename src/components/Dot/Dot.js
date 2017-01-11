@@ -7,15 +7,12 @@ const Dot = ({ name, index, dotPos, moveDots, unHover }) =>  {
     moveDots(index, name);
   }
 
-  const style = {
-    left:dotPos[index][0],
-    top:dotPos[index][1]
-  }
+  const pos = {transform: `translate(calc(10vw * ${dotPos[index][0]}), calc(9.5vh * ${dotPos[index][1]}))`};
 
   return (
     <div
       className={`project__dot project__dot--${name}`}
-      style={style}
+      style={pos}
       onMouseEnter={() => dotHover()}
       onMouseLeave={() => unHover()}
       onClick={() => browserHistory.push(`/project/${name}`)}

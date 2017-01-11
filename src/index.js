@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
+import { initializeProject } from './utils';
 import App from './components/App/App';
 import Main from './components/Main/MainContainer';
 import Project from './components/Project/ProjectContainer';

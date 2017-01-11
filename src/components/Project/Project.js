@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 var Flickity = require('flickity');
 import holidayGamesImage from '../../images/holiday-games.png';
+import {browserHistory} from 'react-router';
 
 const flickityOptions = {
   cellAlign: 'left',
@@ -17,6 +18,13 @@ class Project extends Component {
   constructor(props){
     super(props);
     this.flkty = {};
+
+    console.log('props: ', props);
+    if(typeof props.params !== 'undefined' && typeof props.project.name === 'undefined'){
+      console.log('route id: ', props.params.id);
+      console.log('init project: ', props.initProject);
+      props.initProject(props.params.id);
+    }
   }
 
   componentDidMount(){
@@ -31,12 +39,12 @@ class Project extends Component {
 
   render(){
 
-    const { title, description, imgs } = this.props.project;
+    const { title, description, imgs, backgroundColor } = this.props.project;
     const imgsArray = Array.isArray(imgs) ? imgs : [];
     const imgsList = imgsArray.map((img, index) => <div key={index} className="carousel__cell"><img className="carousel__image" data-flickity-lazyload={img} /></div>)
 
     return (
-      <section className="project-single__container">
+      <section className="project-single__container" style={{backgroundColor: backgroundColor}}>
         <div className="project-single__copy">
           <div className="project-single__description-container">
             <h2 className="project-single__title">{title}</h2>

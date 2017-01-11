@@ -103,6 +103,10 @@ main.main--inactive {
 	cursor: pointer;
 }
 
+main.main--inactive:hover {
+    transform: translateX(calc(-100% + 35px));
+}
+
 .main__back-button {
 	cursor:pointer;
 	position:absolute;
@@ -218,6 +222,7 @@ footer:hover:before {
 	height:40px;
 	position:absolute;
 	transition:all .2s;
+	z-index:10;
 }
 
 /*.project__dot:before {

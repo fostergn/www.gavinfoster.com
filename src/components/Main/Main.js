@@ -1,5 +1,6 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
+import Chat from '../Chat/Chat';
 import Dot from '../Dot/DotContainer';
 import Preview from '../Preview/PreviewContainer';
 import Project from '../Project/ProjectContainer';
@@ -29,9 +30,9 @@ const Main = ({ children, location, route, params }) =>  {
         {dotList}
         <Preview />
         <div className='main__back-button'>home</div>
+        <Chat />
       </main>
       <Project route={route} location={location} params={params} />
-      {/*children*/}
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-// import { moveDots, unHover } from '../../actions/actions';
 import Preview from './Preview';
 
 const mapStateToProps = (state) => {

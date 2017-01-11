@@ -3,6 +3,8 @@ import classNames from 'classnames';
 
 const Preview = ({ project, hovering, location, route }) =>  {
 
+  console.log('preview project : ', project);
+
   const previewTitleClasses = classNames({
     'project-preview__title': true,
     'project-preview__title--hidden': !hovering

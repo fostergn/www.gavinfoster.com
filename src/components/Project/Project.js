@@ -19,10 +19,8 @@ class Project extends Component {
     super(props);
     this.flkty = {};
 
-    console.log('props: ', props);
-    if(typeof props.params !== 'undefined' && typeof props.project.name === 'undefined'){
-      console.log('route id: ', props.params.id);
-      console.log('init project: ', props.initProject);
+    // check if intial load on project single page
+    if(typeof props.params.id !== 'undefined' && typeof props.project.name === 'undefined'){
       props.initProject(props.params.id);
     }
   }

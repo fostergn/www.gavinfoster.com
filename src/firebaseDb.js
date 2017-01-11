@@ -1,6 +1,8 @@
 import firebase from 'firebase';
-import store from './index';
-import { addConversation, addMessageToConversation, updateConversation } from './actions/actions';
+import { store } from './index';
+import { addMessageToConversation, updateConversation } from './actions/actions';
+
+console.log('top of db: ', store);
 
 const config = {
   apiKey: "AIzaSyCOj3piZf-HrV-WjDy30WlY_F7rCLqCIAk",
@@ -41,6 +43,9 @@ function connectDb(conversationId){
          isConnected,
          lastChat
        };
+       console.log('new conversation: ', newConversation);
+       console.log('store: ', store);
+       console.log('store dispatch: ', store.dispatch);
        store.dispatch(updateConversation(newConversation));
      })
 
@@ -49,8 +54,8 @@ function connectDb(conversationId){
     .orderByChild('conversationId')
     .equalTo(conversationId)
     .on("child_added", function(data) {
-       console.log('new message from convo: ', data.val());
-       store.dispatch(addMessageToConversation(data.val()));
+      //  console.log('new message from convo: ', data.val());
+      //  store.dispatch(addMessageToConversation(data.val()));
      });
 }
 

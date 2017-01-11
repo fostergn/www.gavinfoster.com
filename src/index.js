@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import { initializeProject } from './utils';
+import firebase from './firebaseDb';
 import App from './components/App/App';
 import Main from './components/Main/MainContainer';
 import Project from './components/Project/ProjectContainer';
 import { configureStore } from './store';
 
 // Initialize store
-const store = configureStore();
+export var store = configureStore();
 const mountApp = document.getElementById('root');
 
 ReactDOM.render(

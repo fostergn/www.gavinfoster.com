@@ -4,6 +4,7 @@ import Main from './Main';
 
 const mapStateToProps = (state) => {
   return {
+    isChatOpen: state.chat.isChatOpen,
   };
 };
 

@@ -4,7 +4,7 @@ const ChatIcon = ({ isChatOpen, toggleChat }) =>  {
 
 
   return (
-    <div className="chat__icon" onClick={() => toggleChat()}>
+    <div className={`chat__icon chat__icon--${!isChatOpen ? 'closed' : ''}`} onClick={() => toggleChat()}>
       <div className={`chat__icon-button chat__icon-button--closed ${!isChatOpen ? 'hidden' : ''}`}>
         X
       </div>

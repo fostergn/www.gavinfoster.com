@@ -477,7 +477,13 @@ footer:hover:before {
   bottom:10px;
   right:10px;
 	z-index:10;
+	pointer-events:all;
 }
+
+.chat__container--click-through{
+	pointer-events:none;
+}
+
 .chat__window {
   height:400px;
   background-color:lightgray;
@@ -490,6 +496,7 @@ footer:hover:before {
   font-family: 'Open Sans';
   font-size: 14px;
 	opacity:1;
+	pointer-events:all;
 	transition:all .2s;
 }
 .chat__icon {
@@ -501,11 +508,19 @@ footer:hover:before {
   justify-content: center;
   float:right;
   cursor:pointer;
-  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.3);
   font-family:'roboto';
   font-weight:300;
   font-size:20px;
 	position:relative;
+	pointer-events:all;
+}
+
+.chat__icon:hover, .chat__icon {
+	box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.3);
+}
+
+.chat__icon--closed {
+	box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.8);
 }
 
 .chat__icon-button {
@@ -532,6 +547,7 @@ footer:hover:before {
 .chat__window.hidden {
 	opacity:0;
 	transform: translate(0, 10px);
+	pointer-events:none;
 }
 
 /*
@@ -606,6 +622,7 @@ footer:hover:before {
   word-wrap: break-word;
   color:#333;
   outline:none;
+	cursor: text;
 }
 
 .chat-form__input > #chat-form__textarea {

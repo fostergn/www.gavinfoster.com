@@ -43,9 +43,6 @@ function connectDb(conversationId){
          isConnected,
          lastChat
        };
-       console.log('new conversation: ', newConversation);
-       console.log('store: ', store);
-       console.log('store dispatch: ', store.dispatch);
        store.dispatch(updateConversation(newConversation));
      })
 
@@ -55,7 +52,7 @@ function connectDb(conversationId){
     .equalTo(conversationId)
     .on("child_added", function(data) {
       //  console.log('new message from convo: ', data.val());
-      //  store.dispatch(addMessageToConversation(data.val()));
+       store.dispatch(addMessageToConversation(data.val()));
      });
 }
 

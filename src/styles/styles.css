@@ -484,12 +484,16 @@ footer:hover:before {
 	pointer-events:none;
 }
 
+.main--inactive .chat__container {
+    transform: translateX(-30px);
+}
+
 .chat__window {
   height:400px;
   background-color:lightgray;
   margin-bottom:10px;
   color:black;
-  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.1);
   background-color: white;
   position:relative;
   background-color:#fcfcfc;
@@ -516,7 +520,7 @@ footer:hover:before {
 }
 
 .chat__icon:hover, .chat__icon {
-	box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.1);
 }
 
 .chat__icon--closed {
@@ -526,7 +530,8 @@ footer:hover:before {
 .chat__icon-button {
   position:relative;
   font-size:24px;
-  color: #457fca;
+  /*color: #457fca;*/
+  color: dodgerblue;
 	opacity:1;
 	position: absolute;
 	top: 50%;
@@ -573,7 +578,8 @@ footer:hover:before {
   border: 0;
   font-size: 18px;
   cursor: pointer;
-  color: #55a;
+  /*color: #55a;*/
+	color: dodgerblue;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -663,7 +669,7 @@ footer:hover:before {
 * Chat Message
 */
 
-.chat-message{
+.chat-message {
   margin: 10px;
   padding: 16px;
   max-width:75%;
@@ -672,14 +678,16 @@ footer:hover:before {
   font-size:12px;
   line-height:1.4;
   clear:both;
+	background: dodgerblue;
 }
 
 .chat-message--client{
   float:right;
-  background: #457fca; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #457fca , #5691c8); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #457fca , #5691c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color:#fff;
+  /*background: #457fca;
+  /*background: -webkit-linear-gradient(to left, #457fca , #5691c8); /* Chrome 10-25, Safari 5.1-6 */*/
+  /*background: linear-gradient(to left, #457fca , #5691c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */*/
+	background: dodgerblue;
+	color:#fff;
 }
 .chat-message--admin{
   background-color:#ededed;
@@ -696,16 +704,15 @@ footer:hover:before {
 */
 
 .chat-header {
-  background: #457fca; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #457fca , #5691c8); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #457fca , #5691c8);
+	background-color: dodgerblue;
   display:flex;
   align-items:center;
   justify-content:center;
   color:white;
   height:50px;
   padding-right:50px; /* to center on the title */
-  box-shadow:0 3px 4px -2px grey;
+  box-shadow:0 3px 8px -2px rgba(0,0,100,.6);
+	position:relative;
 }
 
 .chat-header__image-container {
@@ -738,6 +745,6 @@ footer:hover:before {
 }
 
 .chat-message__messages {
-  height: 300px;
+  height: 303px;
   overflow-y: scroll;
 }

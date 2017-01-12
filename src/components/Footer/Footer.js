@@ -1,5 +1,5 @@
 import React from 'react';
-import footerImage from '../../images/portrait.jpg'
+import footerImage from '../../images/gavin-foster.jpg'
 
 const Footer = ({ toggleSetting }) =>  {
   return (
@@ -12,7 +12,7 @@ const Footer = ({ toggleSetting }) =>  {
       <section className="footer-bottom">
         <div className="footer-bottom__text">
           <p>
-            Some more info about gavin like who he is, what he enjoys, and most importantly why you would hire someone who is so mother fucking silly amiright? Let's keep this going. I'll teach me about you if you teach me about you.
+            I'm Gavin and I'm a web developer. <br/>I want to build better tools.
           </p>
         </div>
         <div className="footer-bottom__image">

@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-var Flickity = require('flickity');
+var Flickity = require('flickity-imagesloaded');
 import holidayGamesImage from '../../images/holiday-games.png';
 import {browserHistory} from 'react-router';
 
 const flickityOptions = {
   cellAlign: 'left',
   contain: true,
-  lazyLoad: true,
+  // lazyLoad: true,
+  imagesLoaded: true,
   prevNextButtons: false,
   autoPlay: 2000,
   wrapAround: true,
-  setGallerySize: false,
+  // setGallerySize: false,
+  adaptiveHeight: false,
 };
 
 class Project extends Component {
@@ -27,19 +29,20 @@ class Project extends Component {
 
   componentDidMount(){
       this.flkty = new Flickity( '.carousel__container', flickityOptions);
+      this.flkty.on( 'staticClick', () => this.flkty.next())
   }
 
   componentDidUpdate(){
-    console.log('this flickity: ', this.flkty);
     this.flkty.destroy();
     this.flkty = new Flickity( '.carousel__container', flickityOptions);
+    this.flkty.on( 'staticClick', () => this.flkty.next())
   }
 
   render(){
 
     const { title, description, imgs, backgroundColor } = this.props.project;
     const imgsArray = Array.isArray(imgs) ? imgs : [];
-    const imgsList = imgsArray.map((img, index) => <div key={index} className="carousel__cell"><img className="carousel__image" data-flickity-lazyload={img} /></div>)
+    const imgsList = imgsArray.map((img, index) => <div key={index} className="carousel__cell"><img className="carousel__image" src={img} /></div>)
 
     return (
       <section className="project-single__container" style={{backgroundColor: backgroundColor}}>
@@ -50,7 +53,7 @@ class Project extends Component {
           </div>
         </div>
         <div className="project-single__image-container">
-          <div className="carousel__container">
+          <div className="carousel__container carousel__container--no-scroll ">
             {imgsList}
           </div>
         </div>

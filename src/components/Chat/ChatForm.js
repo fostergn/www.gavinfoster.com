@@ -9,9 +9,25 @@ const ChatForm = ({ sendMessage }) =>  {
     textarea.innerHTML = '';
   }
 
+  function attachImage(){
+    var file    = document.querySelector('input[type=file]').files[0];
+    var reader  = new FileReader();
+
+    reader.addEventListener("load", function () {
+      console.log('reader result: ', reader.result);
+      sendMessage(reader.result);
+    }, false);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
   return (
     <form className="chat-form" onSubmit={(e) => e.preventDefault()}>
       <ChatExpandableText sendMessage={sendMessage} />
+      <div className="chat-form__attachment" onClick={() => attachImage()}><i className="fa fa-paperclip" aria-hidden="true"></i></div>
+      <input className="chat-form__file" onChange={() => attachImage()} type="file"></input>
       <div className="chat-form__submit" onClick={() => submitForm()}><i className="fa fa-paper-plane-o" aria-hidden="true"></i></div>
     </form>
   );

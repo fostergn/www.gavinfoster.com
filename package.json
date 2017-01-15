@@ -56,6 +56,8 @@
   "dependencies": {
     "babel-polyfill": "^6.16.0",
     "classnames": "^2.2.5",
+    "createjs-easeljs": "^0.8.2",
+    "easeljs": "0.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "firebase": "^3.6.2",
     "flickity": "^2.0.5",

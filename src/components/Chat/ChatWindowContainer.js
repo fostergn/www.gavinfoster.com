@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { sendMessage } from '../../actions/actions';
+import { sendMessage, toggleDrawing } from '../../actions/actions';
 import ChatWindow from './ChatWindow';
 
 const mapStateToProps = (state) => {
@@ -13,6 +13,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     sendMessage: (msg) => {
       dispatch(sendMessage(msg));
+    },
+    toggleDrawing: msg => {
+      dispatch(toggleDrawing(msg));
     },
   };
 };

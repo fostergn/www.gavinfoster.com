@@ -1,0 +1,162 @@
+var isMouseDown = false;
+var drawingLine;
+var drawingStage;
+var image;
+var oldX;
+var oldY;
+var line;
+window.color = '#000';
+var cursorSize = 10;
+var stageWidth = 300;
+var stageHeight = 500;
+var offsetX = 35;
+var easeljs;
+
+window.onload = function(){
+  initFileReader();
+  init();
+}
+
+function init(){
+  window.drawingStage = new window.createjs.Stage('drawing-surface');
+  window.optionsStage = new window.createjs.Stage('drawing-options');
+  window.drawingStage.enableDOMEvents(true);
+
+  initDrawingSurface();
+  // initDrawingLine();
+  initColorOptions(['#f00', '#0f0', '#00f', '#000', '#fff']);
+  initDrawingCircle();
+  initPenSizes();
+  initUndo();
+  initDrawingLine();
+
+  window.drawingStage.update();
+  window.optionsStage.update();
+  initStageEvents();
+}
+
+function draw(e){
+  var mouseX = e.stageX;
+  var mouseY = e.stageY;
+  if(window.oldX && window.isMouseDown){
+    // window.drawingLine.graphics.beginStroke(window.color)
+    window.drawingLine.graphics
+                        .setStrokeStyle(cursorSize, 'round')
+                        .moveTo(oldX, oldY)
+                        .lineTo(mouseX, mouseY);
+    window.drawingStage.update();
+  }
+  window.oldX = mouseX;
+  window.oldY = mouseY;
+}
+
+function initColorOptions(colors){
+  colors.forEach(function(color, index){
+    initColorOption(color, (index + 1) * 30);
+  });
+}
+
+function initColorOption(color, posY){
+  var circle = new window.createjs.Shape();
+  circle.graphics.beginFill(color).drawCircle(0, 0, 10).beginStroke('gray').setStrokeStyle(1, 'round').drawCircle(0, 0, 10);
+  circle.x = 15;
+  circle.y = posY;
+  window.optionsStage.addChild(circle);
+  circle.on('click', function(){
+    console.log('switching to : ', color);
+    window.color = color;
+  })
+}
+
+function initPenSizes(){
+  var sizes = [5, 10, 20];
+  sizes.forEach(function(size, index){
+    var size = size / 2;
+    var circle = new window.createjs.Shape();
+    circle.graphics.beginFill('gray').drawCircle(0, 0, size).beginStroke('black').setStrokeStyle(1, 'round').drawCircle(0, 0, size);
+    circle.x = 15;
+    circle.y = stageHeight - ((index + 1) * 20 + 30 + size);
+    window.optionsStage.addChild(circle);
+    circle.on('click', function(){
+      window.cursorSize = size * 2;
+    });
+  })
+}
+
+function initDrawingCircle(){
+  var circle = new window.createjs.Shape();
+  circle.graphics.beginFill('gray').drawCircle(0, 0, 50).beginStroke('black').setStrokeStyle(1, 'round').drawCircle(0, 0, 50);
+  circle.x = 100;
+  circle.y = 100;
+  window.drawingSurface.addChild(circle);
+}
+
+function initDrawingLine(){
+  window.drawingLine = new window.createjs.Shape();
+  window.drawingSurface.addChild(window.drawingLine);
+}
+
+function initDrawingSurface(){
+  window.drawingSurface = new window.createjs.Container();
+  window.drawingStage.addChild(window.drawingSurface);
+}
+
+function initUndo(){
+  var text = new window.createjs.Text("X", "22px Arial", "#444");
+  text.x = 10;
+  text.y = 290;
+  text.textBaseline = "alphabetic";
+
+  var hit = new window.createjs.Shape();
+  hit.graphics.beginFill("rgba(255,255,255,1)").drawRect(text.x-5, text.y - text.getMeasuredHeight()-5, text.getMeasuredWidth()+10, text.getMeasuredHeight()+10);
+  text.hitArea = hit;
+
+  hit.on('click', function(){
+    window.drawingSurface.removeChild(drawingLine);
+    if(window.image){window.drawingSurface.removeChild(window.image);}
+    initDrawingLine();
+    window.drawingStage.update();
+  })
+
+  window.optionsStage.addChild(hit);
+  window.optionsStage.addChild(text);
+}
+
+function initStageEvents(){
+  window.drawingStage.on('stagemousedown', function(){window.isMouseDown=true});
+  window.drawingStage.on('stagemouseup', function(){window.isMouseDown=false});
+  window.drawingStage.on('stagemousemove', draw);
+}
+
+function handleImageFile() {
+  var file    = document.getElementById('drawing-file').files[0];
+  var reader  = new FileReader();
+
+  reader.addEventListener("load", function () {
+    if(window.image){window.stage.removeChildAt(window.stage.getChildIndex(window.image))}
+
+    image = new window.createjs.Bitmap(reader.result);
+    var bounds = image.getBounds();
+    var ratio = calculateAspectRatioFit(bounds.width, bounds.height, stageWidth, stageHeight);
+    var imageXOffset = ((stageWidth + offsetX) - (bounds.width * ratio))/2;
+    image.setTransform(0,0,ratio, ratio);
+    image.x = imageXOffset;
+
+    window.drawingSurface.addChildAt(window.image, window.drawingSurface.getChildIndex(window.drawingLine));
+    window.drawingStage.update();
+
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+
+function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
+    var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+    return ratio;
+ }
+
+ function initFileReader(){
+   console.log('init file reader');
+ }

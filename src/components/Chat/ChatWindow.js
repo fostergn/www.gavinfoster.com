@@ -3,7 +3,7 @@ import ChatForm from './ChatForm';
 import GavinImage from '../../images/gavin.jpg';
 import ChatMessagesList from './ChatMessagesList';
 
-const ChatWindow = ({ isChatOpen, sendMessage, messages }) =>  {
+const ChatWindow = ({ isChatOpen, sendMessage, messages, toggleDrawing }) =>  {
 
   return (
     <div className={`chat__window ${!isChatOpen ? 'hidden' : ''}`}>
@@ -17,7 +17,7 @@ const ChatWindow = ({ isChatOpen, sendMessage, messages }) =>  {
         </div>
       </header>
       <ChatMessagesList messages={messages} />
-      <ChatForm sendMessage={sendMessage} />
+      <ChatForm sendMessage={sendMessage} toggleDrawing={toggleDrawing} />
     </div>
   );
 }

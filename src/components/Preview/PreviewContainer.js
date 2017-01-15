@@ -5,6 +5,7 @@ const mapStateToProps = (state) => {
   return {
     project: state.portfolio.currentProject,
     hovering: state.portfolio.hovering,
+    isDrawing: state.portfolio.isDrawing,
   };
 };
 

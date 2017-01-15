@@ -11,6 +11,7 @@ export const INIT_PROJECT = 'INIT_PROJECT';
 // Chat Constants
 
 export const TOGGLE_CHAT = 'TOGGLE_CHAT';
+export const TOGGLE_DRAWING = 'TOGGLE_DRAWING';
 export const UPDATE_CONVERSATION = 'UPDATE_CONVERSATION';
 export const ADD_MESSAGE_TO_FIREBASE = 'ADD_MESSAGE_TO_FIREBASE';
 export const ADD_MESSAGE_TO_CONVERSATION = 'ADD_MESSAGE_TO_CONVERSATION';
@@ -22,6 +23,12 @@ export function moveDots(position, name) {
         type: MOVE_DOTS,
         position,        // index of dot hovered over
         project: projects[projects.findIndex(project => project.name === name)]
+    }
+}
+
+export function toggleDrawing() {
+    return {
+        type: TOGGLE_DRAWING,
     }
 }
 

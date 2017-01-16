@@ -5,7 +5,7 @@ const initialState = {
     dotPos: randomPosition(),
     hovering: false,
     currentProject: {},
-    isDrawing: true,
+    isDrawing: false,
   },
   chat: {
     isChatOpen: false,

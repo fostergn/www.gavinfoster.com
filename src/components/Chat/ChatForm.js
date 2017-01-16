@@ -10,7 +10,7 @@ const ChatForm = ({ sendMessage, toggleDrawing }) =>  {
   }
 
   function attachImage(){
-    var file    = document.querySelector('input[type=file]').files[0];
+    var file    = document.getElementById('chat-form__file').files[0];
     var reader  = new FileReader();
 
     reader.addEventListener("load", function () {
@@ -27,7 +27,7 @@ const ChatForm = ({ sendMessage, toggleDrawing }) =>  {
       <ChatExpandableText sendMessage={sendMessage} />
       <div className="chat-form__draw" onClick={() => toggleDrawing()}><i className="fa fa-paint-brush" aria-hidden="true"></i></div>
       <div className="chat-form__attachment" onClick={() => attachImage()}><i className="fa fa-paperclip" aria-hidden="true"></i></div>
-      <input className="chat-form__file" onChange={() => attachImage()} type="file"></input>
+      <input className="chat-form__file" id="chat-form__file" onChange={() => attachImage()} type="file"></input>
       <div className="chat-form__submit" onClick={() => submitForm()}><i className="fa fa-paper-plane-o" aria-hidden="true"></i></div>
     </form>
   );

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { sendMessage } from '../../actions/actions';
 import Preview from './Preview';
 
 const mapStateToProps = (state) => {
@@ -11,6 +12,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    sendMessage: (msg) => {
+      dispatch(sendMessage(msg));
+    },
   };
 };
 

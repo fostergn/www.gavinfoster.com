@@ -5,18 +5,11 @@ class Project extends Component {
 
   constructor(props){
     super(props);
-    this.flkty = {};
 
     // check if intial load on project single page
     if(typeof props.params.id !== 'undefined' && typeof props.project.name === 'undefined'){
       props.initProject(props.params.id);
     }
-  }
-
-  componentDidMount(){
-  }
-
-  componentDidUpdate(){
   }
 
   render(){

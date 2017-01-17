@@ -13,7 +13,6 @@ class Project extends Component {
   }
 
   render(){
-
     const { title, description, imgs, backgroundColor } = this.props.project;
     const imgsArray = Array.isArray(imgs) ? imgs : [];
     const imgsList = imgsArray.map((img, index) => <div key={index} className="project-images__item"><img className="project-images__image" src={img} /></div>)

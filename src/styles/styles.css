@@ -459,7 +459,7 @@ footer:hover:before {
 /*
 * Flickity Carousel
 */
-
+/*
 .flickity-slider {
 	height:inherit;
 }
@@ -473,15 +473,16 @@ footer:hover:before {
 
 .carousel__container {
 	width:100%;
-	height:80%;
-	padding-top:5%;
-	position:relative;
-	/*border:2px solid red;*/
+	/*height:80%;*/
+	/*padding-top:5%;*/
+	/*position:relative;
+	border:2px solid red;
+	max-height: 86vh;
 }
 
-.flickity-viewport {
+.flickity-viewport {*/
 	/*height:60%;*/
-	overflow:auto;
+	/*overflow:auto;
 }
 
 @media screen and (min-width: 700px) {
@@ -507,9 +508,10 @@ footer:hover:before {
 }
 
 @media screen and (min-width: 700px) {
-	.flickity-page-dots {
-		height:20%;
-	}
+	.flickity-page-dots {*/
+		/*height:20%;*/
+		/*height:100px;*/
+	/*}
 }
 
 .flickity-page-dots .dot {
@@ -538,10 +540,10 @@ footer:hover:before {
 .flickity-page-dots .dot:nth-child(4) {
 	top:80%;
 	left:5%;
-}
+}*/
 
 /* Non Scrolling Flickity Styles */
-.carousel__container--no-scroll .flickity-slider {
+/*.carousel__container--no-scroll .flickity-slider {
   transform: none !important;
 }
 
@@ -554,7 +556,31 @@ footer:hover:before {
 
 .carousel__container--no-scroll .carousel__cell.is-selected {
   opacity: 1;
-  z-index: 0;
+  z-index: 0;*/
+/*}*/
+
+.project-images__container {
+    width: 100%;
+    height: 100%;
+		position:relative;
+}
+
+.project-images__item {
+    height: 100%;
+    width: 100%;
+		display:flex;
+		align-items:center;
+		position:absolute;
+		top:0;
+		left:0;
+}
+
+.project-images__image {
+    width: 100%;
+}
+
+.project-images__item--hidden {
+
 }
 
 /********************************************
@@ -835,6 +861,8 @@ footer:hover:before {
   text-align: center;
   color: #777;
   line-height: 1.4;
+	background-color: transparent;
+	margin: 0 auto;
 }
 
 .chat-message--image {

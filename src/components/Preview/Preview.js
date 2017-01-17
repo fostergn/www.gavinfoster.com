@@ -4,8 +4,6 @@ import './Drawing';
 
 const Preview = ({ project, hovering, isDrawing, sendMessage }) =>  {
 
-  console.log('preview project : ', project);
-
   const previewTitleClasses = classNames({
     'project-preview__title': true,
     'project-preview__title--hidden': !hovering

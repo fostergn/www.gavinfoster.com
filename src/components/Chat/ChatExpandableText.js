@@ -32,17 +32,17 @@ class ChatExpandableForm extends Component {
 
   }
 
-handleTyping(e) {
-    const keyCode = e.keyCode;
-    if (keyCode == 13 && e.shiftKey) {
-    } else if (keyCode == 13) {
-      const inputElement = document.getElementById('chat-form__textarea');
-      this.submitTextInput(inputElement.innerText);
-      inputElement.innerHTML = '';
-      document.getElementsByClassName('chat-form__span')[0].innerHTML = '';
-      e.preventDefault();
-    }
-}
+  handleTyping(e) {
+      const keyCode = e.keyCode;
+      if (keyCode == 13 && e.shiftKey) {
+      } else if (keyCode == 13) {
+        const inputElement = document.getElementById('chat-form__textarea');
+        this.submitTextInput(inputElement.innerText);
+        inputElement.innerHTML = '';
+        document.getElementsByClassName('chat-form__span')[0].innerHTML = '';
+        e.preventDefault();
+      }
+  }
 
   render(){
     return (

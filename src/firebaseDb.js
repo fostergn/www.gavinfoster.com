@@ -1,6 +1,8 @@
 import firebase from 'firebase';
 import { store } from './index';
 import { addMessageToConversation, updateConversation } from './actions/actions';
+var Chance = require('chance'),
+    chance = new Chance();
 
 console.log('top of db: ', store);
 
@@ -71,6 +73,8 @@ function getUserId(){
       db.ref('conversations/' + userId).update({
         conversationId: userId,
         createdOn: Date.now(),
+        name: chance.name(),
+        identity: Math.floor(Math.random() * 12) + 1 // random int for identity (1-12) 
       });
     }
   }

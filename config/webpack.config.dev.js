@@ -8,6 +8,7 @@ var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 var getClientEnvironment = require('./env');
 var paths = require('./paths');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -109,6 +110,19 @@ module.exports = {
           })
         }
       },
+      // Scss loader
+      // {
+      //   test: /\.scss$/,
+      //   include: paths.appSrc,
+      //   loaders: ["style", "css", "sass"]
+      // },
+      {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract(
+              'style', // backup loader when not building .css file
+              'css!sass' // loaders to preprocess CSS
+          )
+      },
       // "postcss" loader applies autoprefixer to our CSS.
       // "css" loader resolves paths in CSS and adds assets as dependencies.
       // "style" loader turns CSS into JS modules that inject <style> tags.
@@ -172,6 +186,8 @@ module.exports = {
       inject: true,
       template: paths.appHtml,
     }),
+    // for SASS
+    new ExtractTextPlugin('[name].css'),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
     new webpack.DefinePlugin(env),

@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-import { sendMessage, toggleDrawing } from '../../actions/actions';
+import { sendMessage, toggleDrawing, toggleChat } from '../../actions/actions';
 import ChatWindow from './ChatWindow';
 
 const mapStateToProps = (state) => {
+  console.log('is chat open: ', state.chat.isChatOpen);
   return {
     isChatOpen: state.chat.isChatOpen,
     messages: state.chat.conversation.messages,
@@ -16,6 +17,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     toggleDrawing: msg => {
       dispatch(toggleDrawing(msg));
+    },
+    toggleChat: () => {
+      dispatch(toggleChat());
     },
   };
 };

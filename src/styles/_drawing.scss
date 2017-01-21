@@ -1,0 +1,141 @@
+#canvas {
+	position: absolute;
+	bottom: 0px;
+	left:0;
+	width: 300px;
+	height: 500px;
+	opacity:0;
+	background-color:transparent;
+}
+
+.project-preview__image-container--drawing #canvas {
+	background-color: rgba(255,255,255,.5);
+	width: 300px;
+	height: 500px;
+	bottom:0;
+	background-color:white;
+	cursor:crosshair;
+	opacity:1;
+	transition: all .3s;
+}
+
+.options__container {
+	position: absolute;
+	left: calc(100% - 40px);
+	opacity:0;
+}
+
+.project-preview__image-container--drawing .options__container {
+	opacity:1;
+	position: absolute;
+	top: -2px;
+	border-left: 2px solid #9999ff;
+	z-index: 100;
+	background-color: white;
+	transition: opacity .3s;
+	text-align:center;
+	height:504px;
+}
+
+.options__color {
+	width:20px;
+	height:20px;
+	border:2px solid black;
+	border-radius: 100%;
+	margin:4px auto;
+	transition: all .2s;
+	cursor:pointer;
+}
+
+.options__size {
+	border: 2px solid black;
+	border-radius: 100%;
+	margin:4px auto;
+	transition: all .2s;
+	cursor:pointer;
+}
+
+.options__color:hover, .options__size:hover {
+	opacity:.75;
+}
+
+.options__color--white {
+	background-color:white;
+}
+.options__color--orange {
+	background-color:orange;
+}
+.options__color--yellow {
+	background-color:yellow;
+}
+.options__color--green {
+	background-color:green;
+}
+.options__color--red {
+	background-color:red;
+}
+.options__color--purple {
+	background-color:purple;
+}
+.options__color--blue {
+	background-color:blue;
+}
+.options__color--black {
+	background-color:black;
+}
+.options__color--active {
+	border:2px solid white;
+}
+.options__color--white.options__color--active {
+	border:2px solid #ccc;
+}
+.options__color--gradient {
+	background: #d72cdd; /* Old browsers */
+	background: -moz-linear-gradient(top,  #d72cdd 12%, #46ba23 38%, #e8d425 63%, #ff0000 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #d72cdd 12%,#46ba23 38%,#e8d425 63%,#ff0000 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #d72cdd 12%,#46ba23 38%,#e8d425 63%,#ff0000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d72cdd', endColorstr='#ff0000',GradientType=0 ); /* IE6-9 */
+;
+}
+
+.options__size--five {
+	margin-top:14px;
+	width:14px;
+	height:14px;
+}
+.options__size--ten {
+	width:16px;
+	height:16px;
+}
+.options__size--twenty {
+	width:20px;
+	height:20px;
+}
+
+.options__size--active {
+	border:2px solid lightgray;
+}
+
+.options__clear {
+	padding:10px 2px 2px;
+	cursor:pointer;
+}
+
+.options__file-container {
+	position:relative;
+}
+
+.options__file {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+	cursor:pointer;
+}
+
+.options__send, .options__attachment {
+    font-size: 20px;
+    margin: 22px 0px;
+		cursor:pointer;
+}

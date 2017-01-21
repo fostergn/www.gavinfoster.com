@@ -104,6 +104,14 @@ module.exports = {
         include: paths.appSrc,
         loader: 'babel',
       },
+      // Add SASS
+      {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract(
+              'style', // backup loader when not building .css file
+              'css!sass' // loaders to preprocess CSS
+          )
+      },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.
       // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -195,6 +203,8 @@ module.exports = {
         minifyURLs: true
       }
     }),
+    // for SASS
+    // new ExtractTextPlugin('[name].css'),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.

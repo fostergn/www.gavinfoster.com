@@ -52,7 +52,7 @@ function connectDb(conversationId){
   db.ref('messages')
     .orderByChild('conversationId')
     .equalTo(conversationId)
-    .on("child_added", function(data) {
+    .on('child_added', function(data) {
       //  console.log('new message from convo: ', data.val());
        store.dispatch(addMessageToConversation(data.val()));
      });

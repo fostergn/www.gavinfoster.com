@@ -58,6 +58,7 @@
     "chance": "^1.0.4",
     "classnames": "^2.2.5",
     "createjs-easeljs": "^0.8.2",
+    "dotenv": "^2.0.0",
     "easeljs": "0.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "firebase": "^3.6.2",

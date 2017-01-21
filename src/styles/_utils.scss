@@ -1,0 +1,11 @@
+@mixin mq($width, $height: false) {
+  @if $height {
+      @media ( min-width: + $width ) and ( min-height: + $height ) {
+          @content;
+      }
+  }@else {
+      @media ( min-width: + $width ) {
+          @content;
+      }
+  }
+}

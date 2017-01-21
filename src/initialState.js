@@ -8,7 +8,8 @@ const initialState = {
     isDrawing: false,
   },
   chat: {
-    isChatOpen: false,
+//    isChatOpen: false,
+    isChatOpen: true,
     conversation: {
       messages: []
     }

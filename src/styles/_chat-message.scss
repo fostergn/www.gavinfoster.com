@@ -1,0 +1,97 @@
+.chat-message {
+  margin: 10px;
+  padding: 16px;
+  max-width:75%;
+  border-radius:4px;
+  font-weight:300;
+  font-size:12px;
+  line-height:1.4;
+  clear:both;
+	background: dodgerblue;
+}
+
+.chat-message--client{
+  float:right;
+	background: dodgerblue;
+	color:#fff;
+}
+.chat-message--admin{
+  background-color:#ededed;
+  float:left;
+}
+.chat-message--intro {
+  text-align: center;
+  color: #777;
+  line-height: 1.4;
+	background-color: transparent;
+	margin: 0 auto;
+}
+
+.chat-message--image {
+	padding:6px;
+}
+
+.chat-message--image img {
+	width:100%;
+	background-color: white;
+}
+
+.chat-header {
+	background-color: dodgerblue;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  height:50px;
+  padding-right:50px; /* to center on the title */
+  box-shadow:0 3px 8px -2px rgba(0,0,100,.6);
+	position:relative;
+}
+
+.chat-header__image-container {
+  width: 30px;
+  height: 30px;
+  margin-right:10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-header__image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.chat-header__title {
+  font-family: 'roboto';
+  font-weight: 300;
+}
+
+.chat-header__mobile-close {
+  font-size:16px;
+  font-weight:100;
+  position: absolute;
+  top:30%;
+  right: 5px;
+  font-family:'roboto';
+  color:#ddd;
+
+  @include mq(700px){
+    display:none;
+  }
+}
+
+.chat-header__status {
+  font-size: 9px;
+  color: #ddd;
+  font-weight: 100;
+}
+
+.chat-message__messages {
+  height: 303px;
+  overflow-y: scroll;
+}

@@ -5,6 +5,7 @@ const ChatForm = ({ sendMessage, toggleDrawing }) =>  {
 
   function submitForm(){
     const textarea = document.getElementById('chat-form__textarea');
+    if(textarea.innerText === ''){return}
     sendMessage(textarea.innerText);
     textarea.innerHTML = '';
   }

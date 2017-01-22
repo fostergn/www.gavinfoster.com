@@ -15,7 +15,7 @@
 .chat-form__submit {
   position: absolute;
   bottom: 12px;
-  right: 12px;
+  right: 22px;
   background-color: transparent;
   border: 0;
   font-size: 22px;
@@ -23,6 +23,7 @@
 	color: dodgerblue;
   font-weight:100;
   @include mq(700px){
+    right: 12px;
     font-size:18px;
   }
 }
@@ -30,7 +31,7 @@
 .chat-form__attachment {
 	position: absolute;
   bottom: 12px;
-  right: 44px;
+  right: 64px;
   background-color: transparent;
   border: 0;
   font-size: 22px;
@@ -41,6 +42,7 @@
 	cursor:pointer;
   font-weight:100;
   @include mq(700px){
+    right: 44px;
     font-size:18px;
   }
 }
@@ -48,7 +50,7 @@
 .chat-form__file {
 	position: absolute;
   bottom: 12px;
-  right: 44px;
+  right: 64px;
   background-color: transparent;
   border: 0;
   font-size: 22px;
@@ -62,6 +64,7 @@
 	overflow:hidden;
   font-weight:100;
   @include mq(700px){
+    right: 44px;
     font-size:18px;
   }
 }

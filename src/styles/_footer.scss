@@ -3,7 +3,6 @@ footer {
 	width:100%;
   position: relative;
   bottom: 0;
-	transition:transform .5s;
 	z-index:6;
 	border-top:1px solid black;
 	background-color:white;
@@ -18,22 +17,23 @@ footer {
 			}
 		}
 	}
-	&:before {
-		content:'';
-		width: 100vw;
-		height: 100vh;
-		pointer-events:none;
-		position: absolute;
-		top: -100vh;
-		left: 0;
-		opacity:0;
-		background-color: rgba(0,0,0,.2);
-		transition:.3s all;		
-	}
 	@include mq(700px){
+		&:before {
+			content:'';
+			width: 100vw;
+			height: 100vh;
+			pointer-events:none;
+			position: absolute;
+			top: -100vh;
+			left: 0;
+			opacity:0;
+			background-color: rgba(0,0,0,.2);
+			transition:.3s all;		
+		}
 		position:absolute;
 		transform: translate(0, calc(100% - 25px));
 		z-index:20;
+		transition:transform .5s;
 	}
 }
 

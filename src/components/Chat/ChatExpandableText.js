@@ -10,6 +10,7 @@ class ChatExpandableForm extends Component {
   }
 
   submitTextInput(value){
+    if(value === ''){return}
     this.sendMessage(value);
   }
 

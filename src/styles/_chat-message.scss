@@ -95,6 +95,9 @@
 }
 
 .chat-message__messages {
-  height: 303px;
+  height: 80%;
   overflow-y: scroll;
+  @include mq(700px){
+    height: 303px;
+  }
 }

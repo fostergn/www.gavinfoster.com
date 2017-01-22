@@ -19,16 +19,9 @@ class ChatWindow extends Component {
     // }
   }
 
-  toggleMobileChatWindow(){
-    const mobileChatWindow = document.getElementById('chat__window--mobile');
-    if(typeof mobileChatWindow !== 'undefined'){
-      if(mobileChatWindow.classList.contains('hidden')){
-        mobileChatWindow.classList.remove('hidden');
-      } else {
-        mobileChatWindow.classList.add('hidden');
-      }
-      this.props.toggleChat();
-    }
+  closeMobileChatWindow(){
+    document.body.classList.remove('body--chat-open');
+    this.props.toggleChat();
   }
 
   render(){
@@ -44,7 +37,7 @@ class ChatWindow extends Component {
             <h2 className="chat-header__title">Portfolio Support</h2>
             <p className="chat-header__status">is online</p>
           </div>
-          <div className="chat-header__mobile-close" onClick={() => this.toggleMobileChatWindow()}>close</div>
+          <div className="chat-header__mobile-close" onClick={() => this.closeMobileChatWindow()}>close</div>
         </header>
         <ChatMessagesList messages={messages} />
         <ChatForm sendMessage={sendMessage} toggleDrawing={toggleDrawing} />

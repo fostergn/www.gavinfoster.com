@@ -79,6 +79,9 @@ const Preview = ({ project, hovering, isDrawing, sendMessage }) =>  {
 
   return (
     <div className="project-preview__container">
+      <svg className="project-preview__polygon-container" preserveAspectRatio="none" viewBox="0 0 100 100">
+        <polygon className="project-preview__polygon" points="10,5, 90,5, 90,70, 70,70 70,95 10,95" />
+      </svg>
       <div className={previewTitleClasses}>{project.name}</div>
       <section className={previewImageContainerClasses}>
         <div className="project-preview__image-container-child">

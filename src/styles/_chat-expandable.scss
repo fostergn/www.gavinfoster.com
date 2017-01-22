@@ -15,12 +15,15 @@
 .chat-form__input > pre {
   padding: 5px;
   background: transparent;
-  font: 300 13px/16px 'Open Sans', arial, sans-serif;
+  font: 300 14px/16px 'Open Sans', arial, sans-serif;
   white-space: pre-wrap;
   word-wrap: break-word;
   color:#333;
   outline:none;
 	cursor: text;
+  @include mq(700px){
+    font: 300 13px/16px 'Open Sans', arial, sans-serif;
+  }
 }
 
 .chat-form__input > #chat-form__textarea {

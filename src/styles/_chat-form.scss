@@ -18,9 +18,13 @@
   right: 12px;
   background-color: transparent;
   border: 0;
-  font-size: 18px;
+  font-size: 22px;
   cursor: pointer;
 	color: dodgerblue;
+  font-weight:100;
+  @include mq(700px){
+    font-size:18px;
+  }
 }
 
 .chat-form__attachment {
@@ -29,12 +33,16 @@
   right: 44px;
   background-color: transparent;
   border: 0;
-  font-size: 18px;
+  font-size: 22px;
   cursor: pointer;
   color: dodgerblue;
   transform: rotateY(180deg);
   transform-origin: 50%;
 	cursor:pointer;
+  font-weight:100;
+  @include mq(700px){
+    font-size:18px;
+  }
 }
 
 .chat-form__file {
@@ -43,7 +51,7 @@
   right: 44px;
   background-color: transparent;
   border: 0;
-  font-size: 18px;
+  font-size: 22px;
   cursor: pointer;
   color: dodgerblue;
   transform: rotateY(180deg);
@@ -52,6 +60,10 @@
 	opacity:0;
 	cursor:pointer;
 	overflow:hidden;
+  font-weight:100;
+  @include mq(700px){
+    font-size:18px;
+  }
 }
 
 .chat-form__draw {
@@ -60,10 +72,16 @@
   right: 72px;
   background-color: transparent;
   border: 0;
-  font-size: 18px;
+  font-size: 22px;
   cursor: pointer;
   color: dodgerblue;
 	cursor:pointer;
+  display:none;
+  font-weight:100;
+  @include mq(700px){
+    font-size:18px;
+    display:block;
+  }
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

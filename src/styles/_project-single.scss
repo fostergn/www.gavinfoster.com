@@ -20,7 +20,8 @@
 .project-single__copy {
 	width:100%;
 	box-sizing: border-box;
-	padding: .5rem 1rem;
+	// padding: .5rem 1rem;
+	padding:0;
 	@include mq(700px){
 		width:50%;
 		padding: 4rem 1rem 0;		
@@ -44,9 +45,13 @@
 }
 
 .project-single__description {
-	font-size:22px;
+	font-size:18px;
 	text-align:justify;
-	line-height:1.5;
+	line-height:1.2;
+	@include mq(700px){
+		font-size:22px;
+		line-height:1.5;
+	}
 }
 
 .project-single__image-container {
@@ -65,18 +70,23 @@
 
 .project-images__container {
     width: 100%;
-    height: 100%;
 		position:relative;
+		margin:10px 0;
+		@include mq(700px){
+			height:100%;
+		}
 }
 
 .project-images__item {
-    height: 100%;
     width: 100%;
 		display:flex;
 		align-items:center;
-		position:absolute;
 		top:0;
 		left:0;
+		@include mq(700px){
+			position:absolute;
+			height:100%;
+		}
 }
 
 .project-images__image {

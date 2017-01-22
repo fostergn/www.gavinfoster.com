@@ -95,7 +95,7 @@
 }
 
 .chat-message__messages {
-  height: 80%;
+  height: calc(100% - 95px);
   overflow-y: scroll;
   @include mq(700px){
     height: 303px;

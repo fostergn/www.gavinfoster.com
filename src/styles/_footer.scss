@@ -1,9 +1,8 @@
 footer {
 	height: auto;
 	width:100%;
-  position: absolute;
+  position: relative;
   bottom: 0;
-	transform: translate(0, calc(100% - 25px));
 	transition:transform .5s;
 	z-index:6;
 	border-top:1px solid black;
@@ -32,6 +31,8 @@ footer {
 		transition:.3s all;		
 	}
 	@include mq(700px){
+		position:absolute;
+		transform: translate(0, calc(100% - 25px));
 		z-index:20;
 	}
 }

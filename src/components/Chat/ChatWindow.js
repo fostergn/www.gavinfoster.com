@@ -25,7 +25,7 @@ class ChatWindow extends Component {
   }
 
   render(){
-    const { isChatOpen, sendMessage, messages, toggleDrawing, toggleChat } = this.props;
+    const { isChatOpen, sendMessage, messages, toggleDrawing, toggleChat, isDrawing } = this.props;
 
     return (
       <div id='chat__window--mobile' className={`chat__window ${!isChatOpen ? 'hidden' : ''}`}>
@@ -40,7 +40,7 @@ class ChatWindow extends Component {
           <div className="chat-header__mobile-close" onClick={() => this.closeMobileChatWindow()}>close</div>
         </header>
         <ChatMessagesList messages={messages} />
-        <ChatForm sendMessage={sendMessage} toggleDrawing={toggleDrawing} />
+        <ChatForm sendMessage={sendMessage} toggleDrawing={toggleDrawing} isDrawing={isDrawing} />
       </div>
     );
   }

@@ -59,19 +59,20 @@ function connectDb(conversationId){
 }
 
 function getUserId(){
-  var userId = '';
+  let gavinPortfolioUser = '';
   // get and or set user
   try {
-    if(localStorage.user){
-      var userId = localStorage.user;
-      db.ref('conversations/' + userId).update({
-        conversationId: userId,
+    console.log('does user exist: ', localStorage.gavinPortfolioUser);
+    if(localStorage.gavinPortfolioUser){
+      gavinPortfolioUser = localStorage.gavinPortfolioUser;
+      db.ref('conversations/' + gavinPortfolioUser).update({
+        conversationId: gavinPortfolioUser,
       });
     } else {
-      userId = uid();
-      localStorage.user = userId;
-      db.ref('conversations/' + userId).update({
-        conversationId: userId,
+      gavinPortfolioUser = uid();
+      localStorage.gavinPortfolioUser = gavinPortfolioUser;
+      db.ref('conversations/' + gavinPortfolioUser).update({
+        conversationId: gavinPortfolioUser,
         createdOn: Date.now(),
         name: chance.name(),
         identity: Math.floor(Math.random() * 12) + 1 // random int for identity (1-12) 
@@ -81,7 +82,7 @@ function getUserId(){
   catch(e) {
     console.log('local storage not given permission: ', e);
   }
-  return userId;
+  return gavinPortfolioUser;
 }
 
 function uid(){

@@ -49,6 +49,7 @@
   padding-right:50px; /* to center on the title */
   box-shadow:0 3px 8px -2px rgba(0,0,100,.6);
 	position:relative;
+  z-index:10;
 }
 
 .chat-header__image-container {
@@ -96,8 +97,14 @@
 
 .chat-message__messages {
   height: calc(100% - 95px);
+  position:relative;
+  width:100%;
+  left:0;
+  bottom:47px;
   overflow-y: scroll;
   @include mq(700px){
     height: 303px;
+    position:relative;
+    bottom:0;
   }
 }

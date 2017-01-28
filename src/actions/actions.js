@@ -15,6 +15,7 @@ export const TOGGLE_DRAWING = 'TOGGLE_DRAWING';
 export const UPDATE_CONVERSATION = 'UPDATE_CONVERSATION';
 export const ADD_MESSAGE_TO_FIREBASE = 'ADD_MESSAGE_TO_FIREBASE';
 export const ADD_MESSAGE_TO_CONVERSATION = 'ADD_MESSAGE_TO_CONVERSATION';
+const UPDATE_TYPING = 'UPDATE_TYPING';
 
 // Portfolio Actions
 
@@ -67,6 +68,15 @@ export function addMessageToConversation(message){
     type: ADD_MESSAGE_TO_CONVERSATION,
     message,
   }
+}
+
+export function updateIsTyping(typing){
+    firebaseDb.ref(`conversations/${conversationId}`).update({
+        clientIsTyping: typing
+    });
+    return {
+        type: UPDATE_TYPING,
+    }
 }
 
 export function sendMessage(message) {

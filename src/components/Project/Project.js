@@ -93,7 +93,6 @@ class Project extends Component {
   }
 
   render(){
-    console.log('project props: ', this.props);
     const { location } = this.props;
     const { title, description, imgs, backgroundColor, backgroundColorBorder } = this.props.project;
 

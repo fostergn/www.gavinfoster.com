@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { sendMessage, toggleDrawing, toggleChat } from '../../actions/actions';
+import { sendMessage, toggleDrawing, toggleChat, updateIsTyping } from '../../actions/actions';
 import ChatWindow from './ChatWindow';
 
 const mapStateToProps = (state) => {
@@ -21,6 +21,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     toggleChat: () => {
       dispatch(toggleChat());
+    },
+    updateIsTyping: typing => {
+      dispatch(updateIsTyping(typing));
     },
   };
 };

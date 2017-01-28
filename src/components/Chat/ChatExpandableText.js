@@ -4,9 +4,9 @@ class ChatExpandableForm extends Component {
 
   constructor(props) {
     super(props);
-
     this.handleTyping = this.handleTyping.bind(this);
     this.sendMessage = this.props.sendMessage;
+    this.updateIsTyping = this.props.updateIsTyping.bind(this);
   }
 
   submitTextInput(value){
@@ -30,19 +30,34 @@ class ChatExpandableForm extends Component {
     while (l--) {
      this.makeExpandingArea(areas[l]);
     }
+  }
 
+  handleKeyPress() {
+    var isTypingTimeout;
+    var isTyping = false;
+    var debounceTime = 1500;
+    var updateIsTyping = this.updateIsTyping;
+    var input = document.getElementById('chat-form__textarea');
+
+    updateIsTyping(true);
+    if (isTypingTimeout !== undefined) {
+      clearTimeout(isTypingTimeout);
+    }
+    isTypingTimeout = setTimeout(function() {
+      updateIsTyping(false);
+    }, debounceTime);
   }
 
   handleTyping(e) {
-      const keyCode = e.keyCode;
-      if (keyCode == 13 && e.shiftKey) {
-      } else if (keyCode == 13) {
-        const inputElement = document.getElementById('chat-form__textarea');
-        this.submitTextInput(inputElement.innerText);
-        inputElement.innerHTML = '';
-        document.getElementsByClassName('chat-form__span')[0].innerHTML = '';
-        e.preventDefault();
-      }
+    const keyCode = e.keyCode;
+    if (keyCode == 13 && e.shiftKey) {
+    } else if (keyCode == 13) {
+      const inputElement = document.getElementById('chat-form__textarea');
+      this.submitTextInput(inputElement.innerText);
+      inputElement.innerHTML = '';
+      document.getElementsByClassName('chat-form__span')[0].innerHTML = '';
+      e.preventDefault();
+    }
   }
 
   render(){
@@ -54,6 +69,7 @@ class ChatExpandableForm extends Component {
             id="chat-form__textarea"
             placeholder="Message Gavin"
             onKeyDown={(e) => this.handleTyping(e)}
+            onKeyPress={() => this.handleKeyPress()}
             >
           </div>
         </div>

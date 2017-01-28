@@ -2,7 +2,7 @@ import React from 'react';
 import className from 'classnames';
 import ChatExpandableText from './ChatExpandableText';
 
-const ChatForm = ({ sendMessage, toggleDrawing, isDrawing}) =>  {
+const ChatForm = ({ sendMessage, toggleDrawing, isDrawing, updateIsTyping}) =>  {
 
   function submitForm(){
     const textarea = document.getElementById('chat-form__textarea');
@@ -32,7 +32,7 @@ const ChatForm = ({ sendMessage, toggleDrawing, isDrawing}) =>  {
 
   return (
     <form className="chat-form" onSubmit={(e) => e.preventDefault()}>
-      <ChatExpandableText sendMessage={sendMessage} />
+      <ChatExpandableText sendMessage={sendMessage} updateIsTyping={updateIsTyping} />
       <div className="chat-form__draw" onClick={() => toggleDrawing()}><i className={drawingIconClasses} aria-hidden="true"></i></div>
       <div className="chat-form__attachment" onClick={() => attachImage()}><i className="fa fa-paperclip" aria-hidden="true"></i></div>
       <input className="chat-form__file" id="chat-form__file" onChange={() => attachImage()} type="file"></input>

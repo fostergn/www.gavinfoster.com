@@ -7,6 +7,7 @@ class ChatExpandableForm extends Component {
     this.handleTyping = this.handleTyping.bind(this);
     this.sendMessage = this.props.sendMessage;
     this.updateIsTyping = this.props.updateIsTyping.bind(this);
+    this.isTypingTimeout;
   }
 
   submitTextInput(value){
@@ -33,17 +34,15 @@ class ChatExpandableForm extends Component {
   }
 
   handleKeyPress() {
-    var isTypingTimeout;
-    var isTyping = false;
     var debounceTime = 1500;
     var updateIsTyping = this.updateIsTyping;
     var input = document.getElementById('chat-form__textarea');
 
     updateIsTyping(true);
-    if (isTypingTimeout !== undefined) {
-      clearTimeout(isTypingTimeout);
+    if (this.isTypingTimeout !== undefined) {
+      clearTimeout(this.isTypingTimeout);
     }
-    isTypingTimeout = setTimeout(function() {
+    this.isTypingTimeout = setTimeout(function() {
       updateIsTyping(false);
     }, debounceTime);
   }

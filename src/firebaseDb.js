@@ -38,12 +38,14 @@ function connectDb(conversationId){
        const isConnected = data.val().isConnected;
        const isTyping = data.val().isTyping;
        const lastChat = data.val().lastChat;
+       const adminIsTyping = data.val().adminIsTyping;
        const conversationId = data.val().conversationId;
        const newConversation = {
          conversationId,
          isTyping,
          isConnected,
-         lastChat
+         lastChat,
+         adminIsTyping,
        };
        store.dispatch(updateConversation(newConversation));
      })

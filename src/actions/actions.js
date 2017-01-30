@@ -79,6 +79,8 @@ export function updateIsTyping(typing){
     }
 }
 
+
+
 export function sendMessage(message) {
     // send message to firebase
     firebaseDb.ref('messages').push({

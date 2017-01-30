@@ -1,0 +1,5 @@
+gavinfoster:
+  build: .
+  container_name: www.gavinfoster.com
+  ports:
+    - "3000:3000"

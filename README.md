@@ -1,13 +1,14 @@
-# React Create App Boilerplate
+# www.gavinfoster.com
 
-This was built with [React Create App](https://github.com/facebookincubator/create-react-app) as a boilerplate.
+This site shows work and offers support chat functionality. It uses react and redux and was built with [React Create App](https://github.com/facebookincubator/create-react-app) as a boilerplate.
 
 ## Getting Started
-Run npm install & npm start
 
-`npm install`
+Start docker for local development
 
-`npm run start`
+`docker-compose up --build`
+
+`open http://localhost:3000`
 
 ### Deployment
 `npm run deploy`

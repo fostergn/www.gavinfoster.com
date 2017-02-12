@@ -108,3 +108,30 @@
     bottom:0;
   }
 }
+
+.typing__dot {
+  position: relative;
+  display:inline-block;
+  bottom: 0px;
+  width:6px;
+  height:6px;
+  background-color:#AAA;
+  border-radius:100%;
+  margin-left:4px;
+  animation: jump 1s infinite;
+}
+.typing__dot--1 {
+  animation-delay: 200ms;
+}
+.typing__dot--2 {
+  animation-delay: 400ms;
+}
+.typing__dot--3 {
+  animation-delay: 600ms;
+}
+
+@keyframes jump {
+  0%   {bottom: 0px;}
+  30%  {bottom: 5px;}
+  60%  {bottom: 0px;}
+}

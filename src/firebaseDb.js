@@ -36,7 +36,7 @@ function connectDb(conversationId){
    db.ref(`conversations/${conversationId}`)
      .on('value', function(data) {
        const isConnected = data.val().isConnected;
-       const isTyping = data.val().isTyping;
+       const isTyping = data.val().adminIsTyping;
        const lastChat = data.val().lastChat;
        const conversationId = data.val().conversationId;
        const newConversation = {
@@ -45,6 +45,7 @@ function connectDb(conversationId){
          isConnected,
          lastChat
        };
+       console.log('conversation : ', newConversation);
        store.dispatch(updateConversation(newConversation));
      })
 

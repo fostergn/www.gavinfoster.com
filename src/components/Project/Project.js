@@ -13,12 +13,11 @@ class Project extends Component {
     }
   }
 
-  componentDidMount(){
+  componentWillUpdate(){
     this.isMobile = false;
     const breakpoint = 700;
     let windowWidth = window.innerWidth;
     this.isMobile = windowWidth < breakpoint;
-    console.log('window width: ', windowWidth);
     var doc = window.document,
     context = doc.getElementsByClassName('project-images__container')[0],
     clones = context.getElementsByClassName('project-images__item--clone'),
@@ -27,6 +26,7 @@ class Project extends Component {
     scrollPos = 0,
     clonesHeight = 0,
     i = 0;
+    setScrollPos(1);
 
   function getScrollPos() {
     return (context.pageYOffset || context.scrollTop) - (context.clientTop || 0);
@@ -48,6 +48,9 @@ class Project extends Component {
   }
 
   function reCalc() {
+
+    console.log('recalc');
+    
     scrollPos = getScrollPos();
     scrollHeight = context.scrollHeight;
     clonesHeight = getClonesHeight();
@@ -61,16 +64,29 @@ class Project extends Component {
   window.requestAnimationFrame(reCalc);
 
   function scrollUpdate() {
+    // reCalc();
+
     if (!disableScroll) {
       scrollPos = getScrollPos();
 
+        // console.log('scroll pos: ', scrollPos);
+        // console.log('scroll height : ', scrollHeight);
+        console.log('clones height and scroll pos : ', clonesHeight + scrollPos);
+        console.log('clone height: ', scrollHeight);
+
       if (clonesHeight + scrollPos >= scrollHeight) {
         // Scroll to the top when you’ve reached the bottom
+        console.log('----------------------------\n\n\n\n\n\n\n');
+        console.log('scrolled to the bottom i think');
+        console.log('\n\n\n\n\n\n\n----------------------------');
         setScrollPos(1); // Scroll down 1 pixel to allow upwards scrolling
         disableScroll = true;
       } else if (scrollPos <= 0) {
+        console.log('----------------------------\n\n\n\n\n\n\n');
+        console.log('hit the top');
+        console.log('\n\n\n\n\n\n\n----------------------------');
         // Scroll to the bottom when you reach the top
-        setScrollPos(scrollHeight - clonesHeight);
+        setScrollPos(scrollHeight - clonesHeight - 1);
         disableScroll = true;
         }
       }
@@ -96,8 +112,6 @@ class Project extends Component {
     const { location } = this.props;
     const { title, description, imgs, backgroundColor, backgroundColorBorder } = this.props.project;
 
-    const shadowStyle= { boxShadow: `0 8px 8px -8px ${backgroundColorBorder} inset, 0 -8px 8px -8px ${backgroundColorBorder} inset`};
-
     // assuming atleast two images, copy for infinite loop
     // cloning two images for looping scroll
     const imgsArray = Array.isArray(imgs) ? [...imgs, imgs[0], imgs[1]] : [];
@@ -114,7 +128,7 @@ class Project extends Component {
     });
 
     return (
-      <section className="project-single__container" style={{backgroundColor: backgroundColor}}>
+      <section className="project-single__container">
         <div className="project-single__copy">
           <div className="project-single__description-container">
             <h2 className="project-single__title">{title}</h2>
@@ -122,7 +136,7 @@ class Project extends Component {
           </div>
         </div>
         <div className="project-single__image-container">
-          <div className="project-images__container" style={shadowStyle}>
+          <div className="project-images__container">
             {imgsList}
           </div>
         </div>

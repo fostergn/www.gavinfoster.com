@@ -10,8 +10,9 @@ const initialState = {
   chat: {
     isChatOpen: false,
     conversation: {
-      messages: []
-    }
+      messages: [],
+      isTyping: false
+    },
   }
 };
 

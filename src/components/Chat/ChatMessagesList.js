@@ -19,6 +19,7 @@ class ChatMessagesList extends Component {
   }
 
   render(){
+    const { adminIsTyping } = this.props
     let messages = this.props.messages.length > 0 ? this.props.messages : [{author:'intro', message: 'This chat is here to help you if you have any questions 🐸. Gavin is on the other end and eager to answer any questions.'}];
     this.messagesList = messages.map(
       (msg, index) => {
@@ -28,10 +29,13 @@ class ChatMessagesList extends Component {
         return (<li key={index} className={`chat-message chat-message--${msg.author}`}>{msg.message}</li>)
       }
     )
-
+    
+    const isTypingMarkup = <li key={9999} className={`chat-message chat-message--admin chat-message--isTyping`}><span className="typing__dot typing__dot--1"></span><span className="typing__dot typing__dot--2"></span><span className="typing__dot typing__dot--3"></span></li>
+    
     return (
       <ul className="chat-message__messages">
         {this.messagesList}
+        {adminIsTyping ? isTypingMarkup : '' }
       </ul>
     );
   }

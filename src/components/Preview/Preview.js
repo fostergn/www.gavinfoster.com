@@ -85,7 +85,7 @@ const Preview = ({ project, hovering, isDrawing, sendMessage }) =>  {
       <div className={previewTitleClasses}>{project.name}</div>
       <section className={previewImageContainerClasses}>
         <div className="project-preview__image-container-child">
-          <img className={previewImageClasses} src={project.cover} />
+          <img className={previewImageClasses} src={hovering ? project.cover : ''} />
         </div>
         <div className="options__container">
           <div className="options__color options__color--white" id="options__color--white"></div>

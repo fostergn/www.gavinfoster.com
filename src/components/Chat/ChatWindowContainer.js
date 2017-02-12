@@ -3,11 +3,11 @@ import { sendMessage, toggleDrawing, toggleChat, updateIsTyping } from '../../ac
 import ChatWindow from './ChatWindow';
 
 const mapStateToProps = (state) => {
-  console.log('is chat open: ', state.chat.isChatOpen);
   return {
     isChatOpen: state.chat.isChatOpen,
     isDrawing: state.portfolio.isDrawing,
     messages: state.chat.conversation.messages,
+    adminIsTyping: state.chat.conversation.isTyping,
   };
 };
 

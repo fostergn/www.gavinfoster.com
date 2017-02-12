@@ -18,6 +18,7 @@ const projects = [
     title: 'VA Lottery Holiday Games',
     description: `The project is a quiz of random holiday questions that generates a lottery scratcher based on answers. The site uses <span class="highlight--blue">React</span> and <span class="highlight--purple">Redux</span> to handle <span class="underline--blue">state</span> and <span class="highlight--orange">GSAP</span> to create <span class="underline--orange">animations</span> 📹. Users' answers are pushed to a Firebase realtime database 🔥`,
     imgs: [holidayGamesBrowser, holidayGiftBrowser, findingGiftBrowser, holidayGamesMobile],
+    // imgs: [holidayGiftBrowser, findingGiftBrowser, holidayGamesMobile],
     cover: holidayCoverImage,
     backgroundColor: 'rgba(200, 200, 255, 1)',
     backgroundColorBorder: 'rgba(200, 200, 255,.6)',

@@ -9,23 +9,13 @@ class ChatWindow extends Component {
     super(props)
   }
 
-  componentDidMount(){
-    // cut and append element to body for fixed positioning
-    // if(window.matchMedia('(max-width: 700px)').matches){
-    //   const chatWindow = document.getElementsByClassName('chat__window')[0];
-    //   const chatWindowParent = document.getElementsByClassName('chat__container')[0];
-    //   document.body.appendChild(chatWindow);
-    //   chatWindowParent.removeChild(chatWindow);
-    // }
-  }
-
   closeMobileChatWindow(){
     document.body.classList.remove('body--chat-open');
     this.props.toggleChat();
   }
 
   render(){
-    const { isChatOpen, sendMessage, messages, toggleDrawing, toggleChat, isDrawing, updateIsTyping } = this.props;
+    const { adminIsTyping, isChatOpen, sendMessage, messages, toggleDrawing, toggleChat, isDrawing, updateIsTyping } = this.props;
 
     return (
       <div id='chat__window--mobile' className={`chat__window ${!isChatOpen ? 'hidden' : ''}`}>
@@ -39,7 +29,7 @@ class ChatWindow extends Component {
           </div>
           <div className="chat-header__mobile-close" onClick={() => this.closeMobileChatWindow()}>close</div>
         </header>
-        <ChatMessagesList messages={messages} />
+        <ChatMessagesList adminIsTyping={adminIsTyping} messages={messages} />
         <ChatForm sendMessage={sendMessage} toggleDrawing={toggleDrawing} isDrawing={isDrawing} updateIsTyping={updateIsTyping} />
       </div>
     );

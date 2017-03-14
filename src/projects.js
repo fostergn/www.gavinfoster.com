@@ -27,7 +27,7 @@ import adminCoverImage from './images/admin-cover.jpg';
 import portfolioCoverImage from './images/portfolio-cover-image.jpg';
 import statusCoverImage from './images/status-cover.jpg';
 import chmCoverImage from './images/business-stock.jpg';
-import holidayCoverImage from './images/holiday-cover.png';
+import holidayCoverImage from './images/holiday-cover.jpg';
 import portrait from './images/portrait.jpg';
 
 const projects = [

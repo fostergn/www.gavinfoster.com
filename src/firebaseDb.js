@@ -4,8 +4,6 @@ import { addMessageToConversation, updateConversation } from './actions/actions'
 var Chance = require('chance'),
     chance = new Chance();
 
-console.log('top of db: ', store);
-
 const config = {
   apiKey: "AIzaSyCOj3piZf-HrV-WjDy30WlY_F7rCLqCIAk",
   authDomain: "portfoliochat-c02b2.firebaseapp.com",
@@ -47,7 +45,6 @@ function connectDb(conversationId){
          lastChat,
          adminIsTyping,
        };
-       console.log('conversation : ', newConversation);
        store.dispatch(updateConversation(newConversation));
      })
 
@@ -65,7 +62,6 @@ function getUserId(){
   let gavinPortfolioUser = '';
   // get and or set user
   try {
-    console.log('does user exist: ', localStorage.gavinPortfolioUser);
     if(localStorage.gavinPortfolioUser){
       gavinPortfolioUser = localStorage.gavinPortfolioUser;
       db.ref('conversations/' + gavinPortfolioUser).update({

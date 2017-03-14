@@ -48,9 +48,6 @@ class Project extends Component {
   }
 
   function reCalc() {
-
-    console.log('recalc');
-    
     scrollPos = getScrollPos();
     scrollHeight = context.scrollHeight;
     clonesHeight = getClonesHeight();
@@ -64,27 +61,12 @@ class Project extends Component {
   window.requestAnimationFrame(reCalc);
 
   function scrollUpdate() {
-    // reCalc();
-
     if (!disableScroll) {
       scrollPos = getScrollPos();
-
-        // console.log('scroll pos: ', scrollPos);
-        // console.log('scroll height : ', scrollHeight);
-        console.log('clones height and scroll pos : ', clonesHeight + scrollPos);
-        console.log('clone height: ', scrollHeight);
-
       if (clonesHeight + scrollPos >= scrollHeight) {
-        // Scroll to the top when you’ve reached the bottom
-        console.log('----------------------------\n\n\n\n\n\n\n');
-        console.log('scrolled to the bottom i think');
-        console.log('\n\n\n\n\n\n\n----------------------------');
         setScrollPos(1); // Scroll down 1 pixel to allow upwards scrolling
         disableScroll = true;
       } else if (scrollPos <= 0) {
-        console.log('----------------------------\n\n\n\n\n\n\n');
-        console.log('hit the top');
-        console.log('\n\n\n\n\n\n\n----------------------------');
         // Scroll to the bottom when you reach the top
         setScrollPos(scrollHeight - clonesHeight - 1);
         disableScroll = true;

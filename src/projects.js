@@ -49,22 +49,21 @@ const projects = [
   {
     name: 'status',
     title: 'Portfolio Status',
-    description: `The status page has live updates, response time graph, and live video feed to give a general sense of the status of Gavin Foster and his portfolio. It uses a combination of a raspberry pi, three.js, vue, node, websockets, redis, and kue.`,
+    description: `The <a href="status.gavinfoster.com">status page</a> has live updates, response time graph, and live video feed to give a general sense of the status of Gavin Foster and his portfolio. It uses a combination of a raspberry pi, three.js, vue, node, websockets, redis, and kue.`,
     imgs: [statusOne, statusIncident, statusKue, statusTwo],
     cover: statusCoverImage,
   },
   {
     name: 'portfolio',
     title: 'Portfolio Site',
-    description: `This is the site that you're on right now. It is built with React and uses Firebase to store messages for the chat application. The drawing pad is just a vanilla canvas element.`,
+    description: `This is the site that you're on right now. The site shows Gavin's work and has a chat application for support. It is built with React and uses Firebase to store messages for the chat application. The drawing pad is just a vanilla canvas element.`,
     imgs: [portfolioHome, portfolioSingle, portfolioChat, portfolioChatMobile],
     cover: portfolioCoverImage
   },
   {
     name: 'admin',
     title: 'Portfolio Admin',
-    // description: `The status page has live updates, response time graph, and live video feed to give a general sense of the status of Gavin Foster and his portfolio. It uses a combination of a raspberry pi, three.js, vue, node, websockets, redis, and kue.`,
-    description: `The admin site allows Gavin to respond to conversations. Gavin spun up a Node server and uses Twilio, so that if he isn't logged in messages get sent to his phone where he can respond. The site also uses the same tech as his <a href="portfolio">portfolio</a>`,
+    description: `The <a href="admin.gavinfoster.com">admin site</a> allows Gavin to respond to conversations. Gavin spun up a Node server and uses Twilio, so that if he isn't logged in messages get sent to his phone where he can respond. The site also uses the same tech as his <a href="portfolio">portfolio</a>`,
     imgs: [adminDashboard, adminConvo, adminLogin, adminSearch],
     cover: adminCoverImage
   },

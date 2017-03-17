@@ -90,6 +90,13 @@
 		}
 }
 
+.project-images__item--clone {
+	display:none;
+	@include mq(700px){
+		display:flex;
+	}
+}
+
 .project-images__image {
     width: 100%;
 }

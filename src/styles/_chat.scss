@@ -1,4 +1,5 @@
 .chat__container {
+  display:none;
   width:300px;
   position:initial;
   bottom:10px;
@@ -9,6 +10,7 @@
     pointer-events:none;
   }
   @include mq(700px){
+    display:block;
     position:absolute;
   }
 }

@@ -9,7 +9,8 @@
 	padding-left:calc(25px + 20px);
 	box-sizing:border-box;
 	background-color:#efefef;
-	overflow:auto;
+	overflow:scroll;
+	-webkit-overflow-scrolling: touch;
 	@include mq(700px){
 		display:flex;
 		flex-direction:row;

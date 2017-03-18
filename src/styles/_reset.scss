@@ -49,11 +49,13 @@ table {
 
 ::-webkit-scrollbar {
     width: .5em;
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
 }
 
 ::-webkit-scrollbar-track {
 
-  outline: 1px solid slategrey;
+  outline: 0px solid transparent;
 }
 
 

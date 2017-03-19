@@ -11,4 +11,4 @@ Start docker for local development
 `open http://localhost:3000`
 
 ### Deployment
-`rsync -av build/ gavin@45.55.67.227:/var/www/gavinfoster.com/html`
+`npm run build && rsync -av build/ gavin@45.55.67.227:/var/www/gavinfoster.com/html`

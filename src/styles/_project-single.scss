@@ -62,7 +62,7 @@
 	display:initial;
 	@include mq(700px){
 		width:50%;
-		height:auto;
+		// height:auto;
 		flex:auto;
 		display:flex;
 		align-items:center;		

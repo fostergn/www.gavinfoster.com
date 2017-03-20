@@ -15,6 +15,9 @@
 		display:flex;
 		flex-direction:row;
 		flex-wrap:nowrap;
+		padding-top: 0;
+    padding-bottom: 0;
+		height: calc(100vh - 48px);
 	}
 }
 
@@ -65,7 +68,8 @@
 		// height:auto;
 		flex:auto;
 		display:flex;
-		align-items:center;		
+		align-items:center;	
+		height: calc(100vh - 65px);
 	}
 }
 
@@ -76,6 +80,7 @@
 		overflow-y:scroll;
 		@include mq(700px){
 			height:100%;
+			margin:0;
 		}
 }
 

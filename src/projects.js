@@ -34,7 +34,7 @@ const projects = [
   {
     name: 'lottery',
     title: 'VA Lottery Holiday Games',
-    description: `The project is a quiz of random holiday questions that generates a lottery scratcher based on answers. The site uses <span class="highlight--blue">React</span> and <span class="highlight--purple">Redux</span> to handle <span class="underline--blue">state</span> and <span class="highlight--orange">GSAP</span> to create <span class="underline--orange">animations</span>. Users' answers are pushed to a Firebase realtime database`,
+    description: `The project is a quiz of random holiday questions that generates a lottery scratcher based on answers. The site uses <span class="highlight--blue">React</span> and <span class="highlight--purple">Redux</span> to handle <span class="underline--blue">state</span> and <span class="highlight--orange">GSAP</span> to create <span class="underline--orange">animations</span>. Users' answers are pushed to a Firebase realtime database.`,
     imgs: [holidayGamesBrowser, holidayGiftBrowser, findingGiftBrowser, holidayGamesMobile],
     // imgs: [holidayGiftBrowser, findingGiftBrowser, holidayGamesMobile],
     cover: holidayCoverImage,
@@ -49,21 +49,21 @@ const projects = [
   {
     name: 'status',
     title: 'Portfolio Status',
-    description: `The <a href="status.gavinfoster.com">status page</a> has live updates, response time graph, and live video feed to give a general sense of the status of Gavin Foster and his portfolio. It uses a combination of a raspberry pi, three.js, vue, node, websockets, redis, and kue.`,
+    description: `The <a target="_blank" href="http://status.gavinfoster.com">status page</a> has <span class="underline--blue">live updates</span>, response time graph, and live <span class="underline--orange">video feed</span> to give a general sense of the status of Gavin Foster and his portfolio. It uses a combination of a <span class="highlight--orange">raspberry pi</span>, three.js, vue, <span class="highlight--blue">node</span>, <span class="highlight--blue">websockets</span>, <span class="highlight--blue">redis</span>, and <span class="highlight--blue">kue</span>.`,
     imgs: [statusOne, statusIncident, statusKue, statusTwo],
     cover: statusCoverImage,
   },
   {
     name: 'portfolio',
     title: 'Portfolio Site',
-    description: `This is the site that you're on right now. The site shows Gavin's work and has a chat application for support. It is built with React and uses Firebase to store messages for the chat application. The drawing pad is just a vanilla canvas element.`,
+    description: `This is the site that you're on right now! The site shows Gavin's work and has a <span class="underline--orange">chat application</span> for support. It is built with <span class="highlight--blue">React</span> and uses <span class="highlight--orange">Firebase</span> to store messages for the chat application. The drawing pad is just a vanilla canvas element.`,
     imgs: [portfolioHome, portfolioSingle, portfolioChat, portfolioChatMobile],
     cover: portfolioCoverImage
   },
   {
     name: 'admin',
     title: 'Portfolio Admin',
-    description: `The <a href="admin.gavinfoster.com">admin site</a> allows Gavin to respond to conversations. Gavin spun up a Node server and uses Twilio, so that if he isn't logged in messages get sent to his phone where he can respond. The site also uses the same tech as his <a href="portfolio">portfolio</a>`,
+    description: `The <a target="_blank" href="http://admin.gavinfoster.com">admin application</a> allows Gavin to respond to conversations. A <span class="highlight--purple">Node</span> server paired with a <span class="highlight--orange">realtime database</span> and <span class="highlight--blue">Twilio</span> send and recieve messages via the application or <span class="underline--blue">SMS</span>. The site also uses the same tech as his <a href="portfolio">portfolio</a>`,
     imgs: [adminDashboard, adminConvo, adminLogin, adminSearch],
     cover: adminCoverImage
   },

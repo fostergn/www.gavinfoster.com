@@ -51,10 +51,10 @@
 .project-single__description {
 	font-size:18px;
 	// text-align:justify;
-	line-height:1.2;
+	line-height:1.5;
 	@include mq(700px){
 		font-size:22px;
-		line-height:1.5;
+		// line-height:1.5;
 	}
 }
 
